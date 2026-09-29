@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Streambox — discover and watch great videos." />
+  <title>Streambox — Watch something great</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Streambox home"><span class="brand-mark">▶</span><span>streambox</span></a>
+    <form class="search" id="search-form" role="search">
+      <input id="search-input" type="search" placeholder="Search videos, creators, topics..." autocomplete="off" />
+      <button aria-label="Search" type="submit">⌕</button>
+    </form>
+    <div class="top-actions">
+      <button class="icon-button" id="theme-button" aria-label="Toggle color theme">☼</button>
+      <button class="upload-button" id="upload-button"><span>＋</span> Upload</button>
+      <button class="avatar" aria-label="Profile">JR</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <nav>
+        <a class="nav-link active" href="#"><span>⌂</span> Home</a>
+        <a class="nav-link" href="#trending"><span>↗</span> Trending</a>
+        <a class="nav-link" href="#library"><span>▣</span> Your library</a>
+      </nav>
+      <div class="sidebar-rule"></div>
+      <p class="sidebar-label">Explore</p>
+      <nav id="side-categories"></nav>
+      <div class="sidebar-footer"><p>Made for watching<br /><strong>good stuff.</strong></p><span>v1.0</span></div>
+    </aside>
+
+    <section class="content">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">YOUR DAILY WATCH LIST</p>
+          <h1>Find your next<br /><em>favorite thing.</em></h1>
+          <p class="hero-copy">Curated videos from curious people.<br />Press play and stay awhile.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="hill hill-one"></div><div class="hill hill-two"></div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span></div>
+      </div>
+
+      <div class="section-heading" id="trending"><div><p class="eyebrow">HANDPICKED FOR YOU</p><h2>Trending now <span>↗</span></h2></div><button class="text-button" id="clear-filter">View all <span>→</span></button></div>
+      <div class="chips" id="chips"></div>
+      <div class="video-grid" id="video-grid"></div>
+      <div class="empty-state hidden" id="empty-state"><div>⌕</div><h3>No videos found</h3><p>Try another search or browse a different category.</p></div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="watch-modal" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="modal-backdrop" data-close="true"></div><div class="player-shell"><button class="close-button" id="close-modal" aria-label="Close player">×</button><video id="player" controls playsinline></video><div class="player-info"><div><p class="eyebrow" id="player-category"></p><h2 id="player-title"></h2><p id="player-description"></p></div><button class="like-button" id="like-button">♡ <span>Like</span></button></div></div>
+  </div>
+
+  <input type="file" id="file-input" accept="video/*" hidden />
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
